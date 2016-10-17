@@ -1,15 +1,14 @@
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
 
-/*
-	This class can be used as a starting point for creating your Chess game project. The only piece that
-	has been coded is a white pawn...a lot done, more to do!
-*/
 
 public class ChessProject extends JFrame implements MouseListener, MouseMotionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3076576915669770713L;
 	JLayeredPane layeredPane;
 	JPanel chessBoard;
 	JLabel chessPiece;
@@ -21,11 +20,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 	int initialY;
 	JPanel panels;
 	JLabel pieces;
+	Colour nextMove;
 
-     public enum PieceSelection{
-	   WHITE,
-	   BLACK;
-	 }
+	public enum Colour {
+		WHITE, BLACK;
+	}
 
 	public ChessProject() {
 		Dimension boardSize = new Dimension(600, 600);
@@ -39,6 +38,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 
 		// Add a chess board to the Layered Pane
 		chessBoard = new JPanel();
+		nextMove = Colour.WHITE;
 		layeredPane.add(chessBoard, JLayeredPane.DEFAULT_LAYER);
 		chessBoard.setLayout(new GridLayout(8, 8));
 		chessBoard.setPreferredSize(boardSize);
@@ -128,6 +128,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 		}
 	}
 
+	//this checks if there is a King in a location so that the other King cannot be within 1 square
 	private Boolean checkKingAtLocation(int x, int y) {
 		try {
 			Component c1 = chessBoard.findComponentAt(x, y);
@@ -140,7 +141,8 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 			return false;
 		}
 	}
-
+	
+	//this is to check if there is a King in the location of where the piece is taken
 	private Boolean checkIfGameOver(int newX, int newY) {
 		Boolean oponent = false;
 		Component c1 = chessBoard.findComponentAt(newX, newY);
@@ -260,7 +262,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 								} else {
 									validMove = false;
 								}
-							} else if (pieceName.contains("Black")){
+							} else if (pieceName.contains("Black")) {
 								if (checkBlackOponent(e.getX(), e.getY())) {
 									validMove = true;
 								} else {
@@ -774,6 +776,13 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				}
 			}
 		}
+
+		if (validMove && ((pieceName.contains("White") && nextMove == Colour.BLACK)
+				|| (pieceName.contains("Black") && nextMove == Colour.WHITE))) {
+			validMove = false;
+			System.out.println("It's " + nextMove + "'s turn!");
+		}
+
 		if (!validMove) {
 			int location = 0;
 			if (startY == 0) {
@@ -836,6 +845,11 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 					parent.add(chessPiece);
 				}
 				chessPiece.setVisible(true);
+			}
+			if (nextMove == Colour.WHITE) {
+				nextMove = Colour.BLACK;
+			} else {
+				nextMove = Colour.WHITE;
 			}
 		}
 	}
