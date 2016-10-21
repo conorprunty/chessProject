@@ -343,7 +343,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							if (pieceName.contains("White")) {
 								if (checkWhiteOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 										System.exit(1);
 									}
@@ -353,7 +353,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							} else {
 								if (checkBlackOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 										System.exit(1);
 									}
@@ -400,7 +400,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							if (pieceName.contains("White")) {
 								if (checkWhiteOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 										System.exit(1);
 									}
@@ -410,7 +410,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							} else {
 								if (checkBlackOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 										System.exit(1);
 									}
@@ -489,7 +489,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							if (pieceName.contains("White")) {
 								if (checkWhiteOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 										System.exit(1);
 									}
@@ -499,7 +499,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							} else {
 								if (checkBlackOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 										System.exit(1);
 									}
@@ -560,7 +560,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							if (pieceName.contains("White")) {
 								if (checkWhiteOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 										System.exit(1);
 									}
@@ -570,7 +570,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 							} else {
 								if (checkBlackOponent(e.getX(), e.getY())) {
 									validMove = true;
-									if (checkIfGameOver(e.getX(), e.getY())) {
+									if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 										JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 										System.exit(1);
 									}
@@ -604,7 +604,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 						if (pieceName.contains("White")) {
 							if (checkWhiteOponent(e.getX(), e.getY())) {
 								validMove = true;
-								if (checkIfGameOver(e.getX(), e.getY())) {
+								if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 									JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 									System.exit(1);
 								}
@@ -616,7 +616,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 						} else {
 							if (checkBlackOponent(e.getX(), e.getY())) {
 								validMove = true;
-								if (checkIfGameOver(e.getX(), e.getY())) {
+								if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 									JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 									System.exit(1);
 								}
@@ -658,7 +658,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				if (piecePresent(e.getX(), e.getY())) {
 					if (checkBlackOponent(e.getX(), e.getY())) {
 						validMove = true;
-						if (checkIfGameOver(e.getX(), e.getY())) {
+						if (checkIfGameOver(e.getX(), e.getY()) && checkBlackOponent(e.getX(), e.getY())) {
 							JOptionPane.showMessageDialog(null, "Game Over - Black Wins!!");
 							System.exit(1);
 						}
@@ -710,7 +710,7 @@ public class ChessProject extends JFrame implements MouseListener, MouseMotionLi
 				if (piecePresent(e.getX(), e.getY())) {
 					if (checkWhiteOponent(e.getX(), e.getY())) {
 						validMove = true;
-						if (checkIfGameOver(e.getX(), e.getY())) {
+						if (checkIfGameOver(e.getX(), e.getY()) && checkWhiteOponent(e.getX(), e.getY())) {
 							JOptionPane.showMessageDialog(null, "Game Over - White Wins!!");
 							System.exit(1);
 						}
